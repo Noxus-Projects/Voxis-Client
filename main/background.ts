@@ -10,14 +10,11 @@ if (isProd) {
 	app.setPath("userData", `${app.getPath("userData")} (development)`);
 }
 
-(async () => {
-	await app.whenReady();
-
-	const mainWindow = createWindow("main", {
+app.whenReady().then(async () => {
+	const mainWindow = createWindow({
 		width: 1000,
 		height: 600,
 	});
-	mainWindow.maximize();
 	if (isProd) {
 		await mainWindow.loadURL("app://./home.html");
 	} else {
@@ -25,7 +22,7 @@ if (isProd) {
 		await mainWindow.loadURL(`http://localhost:${port}/home`);
 		mainWindow.webContents.openDevTools();
 	}
-})();
+});
 
 app.on("window-all-closed", () => {
 	app.quit();

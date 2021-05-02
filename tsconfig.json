@@ -11,13 +11,18 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true
   },
+  // "include": [
+  //   "renderer/next-env.d.ts",
+  //   "renderer/**/*.ts",
+  //   "renderer/**/*.tsx"
+  // ],
   "exclude": [
     "node_modules",
     "renderer/next.config.js",
