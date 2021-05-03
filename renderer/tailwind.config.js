@@ -3,7 +3,11 @@ module.exports = {
 	purge: ["./renderer/components/**/*.{js,ts,jsx,tsx}", "./renderer/pages/**/*.{js,ts,jsx,tsx}"],
 	darkMode: false,
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				blurple: "#7289d9"
+			}
+		}
 	},
 	variants: {
 		extend: {}
