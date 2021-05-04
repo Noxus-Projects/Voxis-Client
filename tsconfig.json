@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "renderer/components/*"
+      ],
+      "@config": [
+        "renderer/config.json"
+      ]
+    },
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
