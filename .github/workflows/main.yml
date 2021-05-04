@@ -1,0 +1,30 @@
+name: deploy-test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install Dependencies
+        run: yarn install
+      - name: Run ESLint config
+        run: yarn lint
+      - name: Build application
+        run: yarn build:linux
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: linux
+          path: |
+            dist/*.AppImage
+            dist/*.deb
+            dist/*.snap
+            dist/*.pacman

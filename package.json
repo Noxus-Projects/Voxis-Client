@@ -1,15 +1,16 @@
 {
   "private": true,
-  "name": "my-nextron-app",
-  "description": "My application description",
+  "name": "de-koelkast",
+  "description": "",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
-    "build": "nextron build",
+    "build:linux": "nextron build -l",
     "postinstall": "electron-builder install-app-deps",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "tsc"
   },
   "dependencies": {
     "electron-serve": "^1.1.0"
