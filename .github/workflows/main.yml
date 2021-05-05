@@ -13,13 +13,23 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+
+      # Dependencies
+      # - run: npm i -g yarn&&sudo apt update
+      - name: Install tools for the .pacman build
+        run: sudo apt install -y libarchive-tools
       - name: Install Dependencies
         run: yarn install
+
+      # Testing
       - name: Run ESLint config
         run: yarn lint
+
+      # Build
       - name: Build application
         run: yarn build:linux
 
+      # Upload
       - uses: actions/upload-artifact@v1
         with:
           name: linux
