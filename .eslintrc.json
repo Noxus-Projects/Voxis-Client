@@ -42,6 +42,7 @@
 				"plugin:jsx-a11y/recommended"
 			],
 			"rules": {
+				"no-mixed-spaces-and-tabs": "off",
 				"prettier/prettier": "error",
 				"react/prop-types": "off",
 				"react/react-in-jsx-scope": "off",

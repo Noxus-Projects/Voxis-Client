@@ -1,8 +1,8 @@
 import Page from "@components/Page";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import { NextPage } from "next";
-import { useEffect } from "react";
 
 const Home: NextPage = () => {
 	const router = useRouter();

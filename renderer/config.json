@@ -1,4 +1,6 @@
 {
     "name": "Voxis",
-    "description": "Voxis is the easiest way to communicate over voice, video, and text. "
+    "description": "Voxis is the easiest way to communicate over voice, video, and text. ",
+    "loginUrl": "https://discord.com/api/oauth2/authorize?client_id=766981723435040778&response_type=code&scope=identify",
+    "loginApi": "https://zuidnederland.be/api/login"
 }
