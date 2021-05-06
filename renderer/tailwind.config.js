@@ -6,8 +6,8 @@ module.exports = {
 		extend: {
 			colors: {
 				blurple: "#7289d9",
-				primary: "#202226",
-				secondary: "#181A1D",
+				primary: "#27292e",
+				secondary: "#202226",
 			}
 		}
 	},

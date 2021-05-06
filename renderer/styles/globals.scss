@@ -18,7 +18,7 @@ body {
 	width: calc(100vw - 20rem);
 }
 .text-input {
-	@apply h-full p-2 text-gray-100 bg-transparent focus:outline-none inline-block;
+	@apply h-full p-2 pl-3 text-gray-300 bg-transparent focus:outline-none inline-block;
 	width: calc(100% - 50px);
 }
 

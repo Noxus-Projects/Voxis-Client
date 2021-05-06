@@ -11,6 +11,7 @@ export default (options: BrowserWindowConstructorOptions): BrowserWindow => {
 	};
 
 	const win = new BrowserWindow(browserOptions);
+	win.removeMenu();
 	win.maximize();
 	return win;
 };

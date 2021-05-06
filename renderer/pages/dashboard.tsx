@@ -8,7 +8,7 @@ import { NextPage } from "next";
 
 const Dashboard: NextPage = () => {
 	return (
-		<Page title="De Koelkast">
+		<Page title="Dashboard">
 			<div className="sidebar">
 				<button className="sidebar-item">
 					<p className="text-gray-300 max-w-max text-xl p-2">
@@ -47,7 +47,7 @@ const Dashboard: NextPage = () => {
 				<div className="text-box">
 					<input className="text-input" type="text" />
 					{/* <a href="samprobleem"> */}
-					<MdSend className="text-white text-2xl w-12 h12 inline-block" />
+					<MdSend className="text-gray-300 text-2xl w-12 h12 inline-block" />
 					{/* </a> */}
 				</div>
 			</div>
