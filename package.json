@@ -14,7 +14,8 @@
     "test": "tsc"
   },
   "dependencies": {
-    "electron-serve": "^1.1.0"
+    "electron-serve": "^1.1.0",
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.20",
