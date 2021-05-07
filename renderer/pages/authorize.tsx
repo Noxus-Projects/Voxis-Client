@@ -2,20 +2,27 @@ import Page from "@components/Page";
 import { useRouter } from "next/router";
 import { loginApi } from "@config";
 
-import { FC, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const Home: FC = () => {
+import { NextPage } from "next";
+
+const Authorize: NextPage = () => {
 	const router = useRouter();
+	const [res, setResponse] = useState({});
 	const code = router.query.code;
+
 	useEffect(() => {
 		if (code) {
-			console.log(code);
 			fetch(loginApi + location.search)
 				.then((g) => g.json())
-				.then(console.log);
+				.then(setResponse);
 		}
 	}, [code]);
 
-	return <Page title="Logging in"></Page>;
+	return (
+		<Page title="Logging in">
+			<pre>{JSON.stringify(res, null, "\t")}</pre>
+		</Page>
+	);
 };
-export default Home;
+export default Authorize;

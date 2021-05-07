@@ -6,7 +6,7 @@
         "renderer/components/*"
       ],
       "@config": [
-        "renderer/config.json"
+        "renderer/config.ts"
       ]
     },
     "target": "es5",

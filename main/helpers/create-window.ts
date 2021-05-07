@@ -4,7 +4,7 @@ export default (options: BrowserWindowConstructorOptions): BrowserWindow => {
 	const browserOptions: BrowserWindowConstructorOptions = {
 		...options,
 		webPreferences: {
-			nodeIntegration: true,
+			nodeIntegration: false,
 			contextIsolation: false,
 			...options.webPreferences,
 		},

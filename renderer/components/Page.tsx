@@ -1,5 +1,5 @@
 import Head from "next/head";
-import config from "@config";
+import { description as defaultDescription } from "@config";
 
 /**
  * Adds SEO tags to a page
@@ -15,8 +15,8 @@ const Page: FC<{ title: string; description?: string }> = ({ title, description,
 			<title>{title} - Voxis</title>
 			<meta property="og:title" content={title} />
 			<meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-			<meta name="description" content={description ?? config.description} />
-			<meta property="og:description" content={description ?? config.description} />
+			<meta name="description" content={description ?? defaultDescription} />
+			<meta property="og:description" content={description ?? defaultDescription} />
 		</Head>
 		{children}
 	</>
