@@ -3,15 +3,6 @@ body {
 	@apply bg-primary text-white;
 }
 
-.sidebar {
-	@apply h-screen w-72 bg-secondary absolute;
-}
-
-.dash-body {
-	@apply h-screen absolute right-0 p-4;
-	width: calc(100vw - 18rem);
-}
-
 .text-box {
 	@apply bg-secondary h-12 rounded-lg shadow-lg absolute;
 	bottom: 1rem;
@@ -22,10 +13,6 @@ body {
 	width: calc(100% - 50px);
 }
 
-.sidebar-item {
-	@apply rounded block mx-auto mt-2 text-left focus:outline-none;
-	width: 17rem;
-}
 .sidebar-item:hover {
 	@apply bg-primary shadow-lg;
 }
