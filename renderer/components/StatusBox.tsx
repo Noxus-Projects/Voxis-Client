@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import UserIcon from "./UserIcon";
 
 const useStyles = createUseStyles({
-	root: {
+	statusBox: {
 		backgroundColor: "#202226",
 		position: "absolute",
 		bottom: "0px",
@@ -54,7 +54,7 @@ const useStyles = createUseStyles({
 const StatusBox: FC<{ username: string; status: string; id: string; avatar: string }> = (props) => {
 	const classes = useStyles();
 	return (
-		<div className={classes.root}>
+		<div className={classes.statusBox}>
 			<div className={classes.userIcon}>
 				<UserIcon id={props.id} avatar={props.avatar} size="2rem" />
 			</div>

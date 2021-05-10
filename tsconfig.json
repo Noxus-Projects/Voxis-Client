@@ -5,9 +5,15 @@
       "@components/*": [
         "renderer/components/*"
       ],
+      "@type/*": [
+        "renderer/@types/*"
+      ],
+      "@utils/*": [
+        "renderer/utils/*"
+      ],
       "@config": [
         "renderer/config.ts"
-      ]
+      ],
     },
     "target": "es5",
     "module": "esnext",

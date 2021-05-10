@@ -3,17 +3,21 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import { NextPage } from "next";
+import isLoggedIn from "@utils/isLoggedIn";
+import createDb from "@utils/db";
 
 const Home: NextPage = () => {
-	const router = useRouter();
+	const { replace } = useRouter();
+
 	useEffect(() => {
-		const loggedIn = false;
+		const loggedIn = isLoggedIn(createDb());
 		if (loggedIn) {
-			router.replace("dashboard");
+			replace("dashboard");
 		} else {
-			router.replace("login");
+			replace("login");
 		}
-	}, [router]);
+	}, [replace]);
+
 	return <Page title="Laden"></Page>;
 };
 

@@ -12,7 +12,6 @@ export const redirectUri = (useEnv?: boolean): string => {
 };
 
 export const loginUrl = (redirectUri: string): string => {
-	console.log(redirectUri);
 	const url = new URL("https://discord.com/api/oauth2/authorize");
 
 	url.searchParams.append("client_id", "766981723435040778");

@@ -1,28 +1,39 @@
 import Page from "@components/Page";
 import { useRouter } from "next/router";
-import { loginApi } from "@config";
+import { loginApi, loginUrl, redirectUri } from "@config";
 
-import { useEffect, useState } from "react";
+import createDb from "@utils/db";
+import isLoggedIn from "@utils/isLoggedIn";
+import axios from "axios";
+import { useEffect } from "react";
 
+import ApiResponse from "@type/api";
 import { NextPage } from "next";
 
 const Authorize: NextPage = () => {
-	const router = useRouter();
-	const [res, setResponse] = useState({});
-	const code = router.query.code;
+	const { query, push } = useRouter();
 
 	useEffect(() => {
-		if (code) {
-			fetch(loginApi + location.search)
-				.then((g) => g.json())
-				.then(setResponse);
-		}
-	}, [code]);
+		const db = createDb();
+		const code = query.code;
 
-	return (
-		<Page title="Logging in">
-			<pre>{JSON.stringify(res, null, "\t")}</pre>
-		</Page>
-	);
+		if (isLoggedIn(db)) {
+			push("dashboard");
+		} else if (code) {
+			axios(loginApi + location.search)
+				.then(({ data }: { data: ApiResponse }) => {
+					db.set("refreshToken", data.refresh_token)
+						.set("accessToken", data.access_token)
+						.set("expires", Date.now() + data.expires_in)
+						.write();
+					push("dashboard");
+				})
+				.catch(() => {
+					push(loginUrl(redirectUri()));
+				});
+		}
+	}, [query, push]);
+
+	return <Page title="Logging in"></Page>;
 };
 export default Authorize;

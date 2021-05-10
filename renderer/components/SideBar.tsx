@@ -5,7 +5,7 @@ import Channel from "@components/Channel";
 import StatusBox from "@components/StatusBox";
 
 const useStyles = createUseStyles({
-	root: {
+	sideBar: {
 		height: "100vh",
 		width: "18rem",
 		position: "absolute",
@@ -17,7 +17,7 @@ const SideBar: FC = () => {
 	const classes = useStyles();
 	return (
 		<>
-			<div className={classes.root}>
+			<div className={classes.sideBar}>
 				<Channel name="chat" />
 				<Channel name="mentions" />
 			</div>

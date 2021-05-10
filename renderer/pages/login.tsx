@@ -1,17 +1,24 @@
 import Page from "@components/Page";
 import Link from "next/link";
 
-import { redirectUri, loginUrl } from "@config";
+import useLogin from "@utils/useLogin";
+import { useEffect } from "react";
+import createDb from "@utils/db";
+import isLoggedIn from "@utils/isLoggedIn";
 
 import { NextPage } from "next";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
-	const [url, setUrl] = useState(loginUrl(redirectUri(true)));
+	const url = useLogin();
+	const { push } = useRouter();
 
 	useEffect(() => {
-		setUrl(loginUrl(redirectUri()));
-	}, []);
+		const db = createDb();
+		if (isLoggedIn(db)) {
+			push("dashboard");
+		}
+	}, [push]);
 
 	return (
 		<Page title="Inloggen">
@@ -21,7 +28,7 @@ const Home: NextPage = () => {
 				<br />
 				<a href={url}>
 					<div>
-						<p>Inloggen met Discord</p>
+						<p>Inloggen met Discord {url}</p>
 					</div>
 				</a>
 				<Link href="/dashboard">
