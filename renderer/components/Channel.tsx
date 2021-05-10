@@ -1,46 +1,26 @@
+import { createUseStyles } from "react-jss";
+import { HiHashtag } from "react-icons/hi";
+
 import { FC } from "react";
 
-import { HiHashtag } from "react-icons/hi";
-import { createUseStyles } from "react-jss";
-
 const useStyles = createUseStyles({
-	root: {
-		margin: {
-			left: "auto",
-			right: "auto",
-			top: 8,
-		},
-		textAlign: "left",
-		display: "block",
-		width: "17rem",
-		borderRadius: 4,
-		"&:focus": {
-			outline: "none",
-		},
+	message: {
+		padding: "8px",
+		margin: "8px",
+		borderRadius: "4px",
 		"&:hover": {
 			backgroundColor: "#27292e",
 		},
+		display: "flex",
+		alignItems: "center",
+		color: "d1d5db",
 	},
-
-	name: {
-		//text-gray-300 max-w-max text-xl p-2
-		maxWidth: "max-content",
-		fontSize: "20px",
-		lineHeight: "28px",
-		padding: 8,
-		color: "#d1d5db",
+	channelName: {
+		marginLeft: "5px",
+		fontSize: "15pt",
 	},
-
-	icon: {
-		display: "inline-block",
-		padding: {
-			right: 8,
-		},
-		color: "#9ca3af",
-	},
-
-	nameText: {
-		display: "inline-block",
+	active: {
+		backgroundColor: "#27292e",
 	},
 });
 
@@ -48,14 +28,12 @@ const Channel: FC<{ name: string }> = (props) => {
 	const classes = useStyles();
 
 	return (
-		<button className={classes.root}>
-			<p className={classes.name}>
-				<div className={classes.icon}>
-					<HiHashtag />
-				</div>
-				<div className={classes.nameText}>{props.name}</div>
-			</p>
-		</button>
+		<>
+			<div className={classes.message}>
+				<HiHashtag />
+				<div className={classes.channelName}>{props.name}</div>
+			</div>
+		</>
 	);
 };
 

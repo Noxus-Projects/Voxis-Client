@@ -13,6 +13,7 @@ const useStyles = createUseStyles({
 		position: "absolute",
 		right: "0px",
 		padding: "16px",
+		backgroundColor: "#27292e",
 	},
 	messageBox: {
 		position: "absolute",
@@ -51,7 +52,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -65,7 +66,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -79,7 +80,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -93,7 +94,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -107,7 +108,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -121,7 +122,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -135,7 +136,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -149,7 +150,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -163,7 +164,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -177,7 +178,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -191,7 +192,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={[
 							"oobie boobie",
@@ -205,7 +206,7 @@ const Dashboard: NextPage = () => {
 					<Message
 						id="451042799169699851"
 						avatar="939c5e21a0fd4bc1e06b8f667a954406"
-						size="56px"
+						size="52px"
 						username="Lotte"
 						messages={["oobie boobie", "<3", "tering"]}
 					/>

@@ -15,18 +15,18 @@ const Home: NextPage = () => {
 
 	return (
 		<Page title="Inloggen">
-			<div className="bg-white text-black font-bold inline-block p-10 m-20 shadow-xl rounded">
-				<p className="text-3xl text-blue-500">De Koelkast</p>
+			<div>
+				<p>De Koelkast</p>
 				<p>Omdat Discord soms beetje zuigt.</p>
 				<br />
 				<a href={url}>
-					<div className="bg-blurple p-2 rounded-lg inline-block shadow-xl">
-						<p className="text-white">Inloggen met Discord</p>
+					<div>
+						<p>Inloggen met Discord</p>
 					</div>
 				</a>
 				<Link href="/dashboard">
 					<a>
-						<p className="text-xs italic pt-2">Doorgaan zonder inloggen</p>
+						<p>Doorgaan zonder inloggen</p>
 					</a>
 				</Link>
 			</div>

@@ -1,7 +1,7 @@
-import { FC } from "react";
 import { createUseStyles } from "react-jss";
+import { FC } from "react";
 
-import Channel from "./Channel";
+import Channel from "@components/Channel";
 import StatusBox from "@components/StatusBox";
 
 const useStyles = createUseStyles({
@@ -18,8 +18,8 @@ const SideBar: FC = () => {
 	return (
 		<>
 			<div className={classes.root}>
-				<Channel name="Boe boe" />
-				<Channel name="Boe yeet" />
+				<Channel name="chat" />
+				<Channel name="mentions" />
 			</div>
 			<StatusBox
 				username="Peer"

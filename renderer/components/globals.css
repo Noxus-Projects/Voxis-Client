@@ -1,0 +1,28 @@
+html,
+body {
+	background-color: "#27292e";
+	color: white;
+}
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+html {
+	font-family: ui-sans-serif, system-ui, Arial, "Noto Sans", sans-serif;
+	line-height: 1.5;
+}
+button {
+	background-color: transparent;
+	background-image: none;
+}
+body {
+	margin: 0;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: #e5e7eb;
+}
