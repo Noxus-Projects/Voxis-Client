@@ -1,0 +1,11 @@
+README.md
+.prettierrc.json
+.gitignore
+electron-builder.yml
+
+node_modules
+.vscode
+resources
+main
+app
+.github
