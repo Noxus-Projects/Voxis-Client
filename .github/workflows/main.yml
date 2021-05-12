@@ -15,7 +15,7 @@ jobs:
           node-version: 12
 
       # Dependencies
-      # - run: npm i -g yarn&&sudo apt update
+      - run: npm i -g yarn&&sudo apt update
       - name: Install tools for the .pacman build
         run: sudo apt install -y libarchive-tools
       - name: Install Dependencies
@@ -52,11 +52,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set env
+        run: echo "${{ secrets.ENV_FILE }}" > renderer/.env.local
       - name: Build Dockerfile and push
         id: docker_build
         uses: docker/build-push-action@v2
-        env:
-          NEXT_PUBLIC_REDIRECT_URI: ${{ secrets.NEXT_PUBLIC_REDIRECT_URI }}
         with:
           push: true
           tags: guusvanmeerveld/voxis-client:latest
