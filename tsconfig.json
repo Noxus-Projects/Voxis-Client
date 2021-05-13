@@ -5,7 +5,7 @@
       "@components/*": [
         "renderer/components/*"
       ],
-      "@type/*": [
+      "@models/*": [
         "renderer/@types/*"
       ],
       "@utils/*": [

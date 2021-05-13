@@ -7,7 +7,7 @@ import isLoggedIn from "@utils/isLoggedIn";
 import axios from "axios";
 import { useEffect } from "react";
 
-import ApiResponse from "@type/api";
+import ApiResponse from "@models/api";
 import { NextPage } from "next";
 
 const Authorize: NextPage = () => {

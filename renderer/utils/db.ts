@@ -1,4 +1,4 @@
-import Store from "@type/localStorage";
+import Store from "@models/localStorage";
 import low from "lowdb";
 import LocalStorage from "lowdb/adapters/LocalStorage";
 

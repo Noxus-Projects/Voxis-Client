@@ -1,8 +1,9 @@
 import { createUseStyles } from "react-jss";
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import Channel from "@components/Channel";
 import StatusBox from "@components/StatusBox";
+import ClientContext from "renderer/client/WebSocket";
 
 const useStyles = createUseStyles({
 	sideBar: {
@@ -15,18 +16,17 @@ const useStyles = createUseStyles({
 
 const SideBar: FC = () => {
 	const classes = useStyles();
+
+	const client = useContext(ClientContext);
+
+	const user = !client ? false : client.db.get("user").value();
 	return (
 		<>
 			<div className={classes.sideBar}>
 				<Channel name="chat" />
 				<Channel name="mentions" />
 			</div>
-			<StatusBox
-				username="Peer"
-				id="406155426238038017"
-				avatar="a15d2e25fc70b6ce2a99a1a148d61bfd"
-				status="Online"
-			/>
+			{user && <StatusBox user={user} />}
 		</>
 	);
 };

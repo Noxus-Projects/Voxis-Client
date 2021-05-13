@@ -1,3 +1,4 @@
+import User from "@models/user";
 import { FC } from "react";
 import { createUseStyles } from "react-jss";
 import UserIcon from "./UserIcon";
@@ -51,17 +52,17 @@ const useStyles = createUseStyles({
 	},
 });
 
-const StatusBox: FC<{ username: string; status: string; id: string; avatar: string }> = (props) => {
+const StatusBox: FC<{ user: User }> = ({ user }) => {
 	const classes = useStyles();
 	return (
 		<div className={classes.statusBox}>
 			<div className={classes.userIcon}>
-				<UserIcon id={props.id} avatar={props.avatar} size="2rem" />
+				<UserIcon id={user.id} avatar={user.avatar} size="2rem" />
 			</div>
 			<div className={classes.statusIndicator}></div>
 			<div className={classes.userInfo}>
-				<div>{props.username}</div>
-				<div className={classes.userStatus}>{props.status}</div>
+				<div>{user.name}</div>
+				{/* <div className={classes.userStatus}>{user.status}</div> */}
 			</div>
 			<select name="" id="" className={classes.dropdown}></select>
 		</div>
