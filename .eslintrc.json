@@ -12,6 +12,7 @@
 	],
 	"ignorePatterns": [
 		"node_modules/*",
+		"app/*",
 		"!.prettierrc.js"
 	],
 	"extends": [

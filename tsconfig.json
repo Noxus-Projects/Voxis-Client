@@ -13,7 +13,7 @@
       ],
       "@config": [
         "renderer/config.ts"
-      ],
+      ]
     },
     "target": "es5",
     "module": "esnext",
