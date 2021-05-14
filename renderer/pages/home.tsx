@@ -1,15 +1,16 @@
 import Page from "@components/Page";
-import ClientContext from "renderer/client/WebSocket";
 
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { NextPage } from "next";
 import isLoggedIn from "@utils/isLoggedIn";
+import useClient from "@utils/useClient";
+
+import { NextPage } from "next";
 
 const Home: NextPage = () => {
 	const { replace } = useRouter();
-	const client = useContext(ClientContext);
+	const client = useClient();
 
 	useEffect(() => {
 		if (client) {

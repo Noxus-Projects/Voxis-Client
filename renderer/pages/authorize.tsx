@@ -1,10 +1,11 @@
 import Page from "@components/Page";
-import ClientContext from "renderer/client/WebSocket";
 
 import axios from "axios";
 import isLoggedIn from "@utils/isLoggedIn";
+import useClient from "@utils/useClient";
+
 import { useRouter } from "next/router";
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import { loginApi, loginUrl, redirectUri } from "@config";
 
 import ApiResponse from "@models/api";
@@ -13,7 +14,7 @@ import { NextPage } from "next";
 const Authorize: NextPage = () => {
 	const { query, push } = useRouter();
 
-	const client = useContext(ClientContext);
+	const client = useClient();
 
 	useEffect(() => {
 		if (client) {

@@ -1,6 +1,8 @@
 import { createUseStyles } from "react-jss";
 import { HiHashtag } from "react-icons/hi";
 
+import ChannelType from "@models/channel";
+
 import { FC } from "react";
 
 const useStyles = createUseStyles({
@@ -24,14 +26,14 @@ const useStyles = createUseStyles({
 	},
 });
 
-const Channel: FC<{ name: string }> = (props) => {
+const Channel: FC<{ channel: ChannelType }> = ({ channel }) => {
 	const classes = useStyles();
 
 	return (
 		<>
 			<div className={classes.channel}>
 				<HiHashtag />
-				<div className={classes.channelName}>{props.name}</div>
+				<div className={classes.channelName}>{channel.name}</div>
 			</div>
 		</>
 	);

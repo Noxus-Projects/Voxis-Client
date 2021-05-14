@@ -8,8 +8,6 @@ export const Provider: FC = ({ children }) => {
 	const [client, setClient] = useState<Client | null>(null);
 
 	useEffect(() => {
-		console.log("effect");
-
 		if (typeof window !== "undefined") {
 			setClient(new Client());
 		}

@@ -6784,6 +6784,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typescript.events@^7.9.0:
+  version "7.9.0"
+  resolved "https://registry.yarnpkg.com/typescript.events/-/typescript.events-7.9.0.tgz#6d7ccaef7487c4dc90b7006528a3152b1ae9f8fc"
+  integrity sha1-bXzK73SHxNyQtwBlKKMVKxrp+Pw=
+
 typescript@^4.2.4:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
