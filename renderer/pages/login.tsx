@@ -1,24 +1,25 @@
 import Page from "@components/Page";
+import ClientContext from "renderer/client/WebSocket";
 import Link from "next/link";
 
 import useLogin from "@utils/useLogin";
-import { useEffect } from "react";
-import createDb from "@utils/db";
 import isLoggedIn from "@utils/isLoggedIn";
+import { useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
 	const url = useLogin();
 	const { push } = useRouter();
 
+	const client = useContext(ClientContext);
+
 	useEffect(() => {
-		const db = createDb();
-		if (isLoggedIn(db)) {
+		if (client && isLoggedIn(client.db)) {
 			push("dashboard");
 		}
-	}, [push]);
+	}, [push, client]);
 
 	return (
 		<Page title="Inloggen">

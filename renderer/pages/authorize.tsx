@@ -1,11 +1,11 @@
 import Page from "@components/Page";
-import { useRouter } from "next/router";
-import { loginApi, loginUrl, redirectUri } from "@config";
+import ClientContext from "renderer/client/WebSocket";
 
-import createDb from "@utils/db";
-import isLoggedIn from "@utils/isLoggedIn";
 import axios from "axios";
-import { useEffect } from "react";
+import isLoggedIn from "@utils/isLoggedIn";
+import { useRouter } from "next/router";
+import { useEffect, useContext } from "react";
+import { loginApi, loginUrl, redirectUri } from "@config";
 
 import ApiResponse from "@models/api";
 import { NextPage } from "next";
@@ -13,27 +13,31 @@ import { NextPage } from "next";
 const Authorize: NextPage = () => {
 	const { query, push } = useRouter();
 
+	const client = useContext(ClientContext);
+
 	useEffect(() => {
-		const db = createDb();
-		const code = query.code;
+		if (client) {
+			const code = query.code;
 
-		if (isLoggedIn(db)) {
-			push("dashboard");
-		} else if (code) {
-			axios(loginApi + location.search)
-				.then(({ data }: { data: ApiResponse }) => {
-					db.set("refreshToken", data.refresh_token)
-						.set("accessToken", data.access_token)
-						.set("expires", Date.now() + data.expires_in)
-						.write();
-					push("dashboard");
-				})
-				.catch(() => {
-					push(loginUrl(redirectUri()));
-				});
+			if (isLoggedIn(client.db)) {
+				push("dashboard");
+			} else if (code) {
+				axios(loginApi + location.search)
+					.then(({ data }: { data: ApiResponse }) => {
+						client.db
+							.set("refreshToken", data.refresh_token)
+							.set("accessToken", data.access_token)
+							.set("expires", Date.now() + data.expires_in)
+							.write();
+						push("dashboard");
+					})
+					.catch(() => {
+						push(loginUrl(redirectUri()));
+					});
+			}
 		}
-	}, [query, push]);
+	}, [query, push, client]);
 
-	return <Page title="Logging in"></Page>;
+	return <Page title="Logging in" />;
 };
 export default Authorize;
