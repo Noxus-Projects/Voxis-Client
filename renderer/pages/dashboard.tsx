@@ -1,10 +1,7 @@
 import { createUseStyles } from "react-jss";
 import { NextPage } from "next";
 
-import Page from "@components/Page";
-import SideBar from "@components/SideBar";
-import TextBox from "@components/TextBox";
-import Message from "@components/Message";
+import { Page, SideBar, TextBox, Message } from "@components";
 
 const useStyles = createUseStyles({
 	dashBody: {

@@ -2,7 +2,8 @@ import User from "@models/user";
 import useClient from "@utils/useClient";
 import { FC, useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import UserIcon from "./UserIcon";
+
+import { UserIcon } from "@components";
 
 const useStyles = createUseStyles({
 	statusBox: {
@@ -55,7 +56,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const StatusBox: FC<{ user: User }> = ({ user }) => {
+export const StatusBox: FC<{ user: User }> = ({ user }) => {
 	const classes = useStyles();
 
 	const client = useClient();
@@ -79,4 +80,3 @@ const StatusBox: FC<{ user: User }> = ({ user }) => {
 		</div>
 	);
 };
-export default StatusBox;

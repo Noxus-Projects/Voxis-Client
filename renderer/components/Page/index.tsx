@@ -9,7 +9,11 @@ import { description as defaultDescription } from "@config";
 
 import { FC } from "react";
 
-const Page: FC<{ title: string; description?: string }> = ({ title, description, children }) => (
+export const Page: FC<{ title: string; description?: string }> = ({
+	title,
+	description,
+	children,
+}) => (
 	<>
 		<Head>
 			<title>{title} - Voxis</title>
@@ -21,4 +25,3 @@ const Page: FC<{ title: string; description?: string }> = ({ title, description,
 		{children}
 	</>
 );
-export default Page;

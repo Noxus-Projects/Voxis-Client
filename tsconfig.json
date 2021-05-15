@@ -2,14 +2,20 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "renderer/components/*"
+      "@components": [
+        "renderer/components/index.ts"
       ],
       "@models/*": [
         "renderer/@types/*"
       ],
       "@utils/*": [
         "renderer/utils/*"
+      ],
+      "@styles/*": [
+        "renderer/styles/*"
+      ],
+      "@client/*": [
+        "renderer/client/*"
       ],
       "@config": [
         "renderer/config.ts"

@@ -1,6 +1,6 @@
-import ClientContext from "renderer/client/WebSocket";
 import { useContext } from "react";
-import Client from "../client";
+import ClientContext from "@client/WebSocket";
+import Client from "@client/index";
 
 const useClient = (): Client | null => {
 	return useContext(ClientContext);

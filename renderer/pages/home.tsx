@@ -1,4 +1,4 @@
-import Page from "@components/Page";
+import { Page } from "@components";
 
 import { useEffect } from "react";
 import { useRouter } from "next/router";

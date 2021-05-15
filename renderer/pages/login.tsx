@@ -1,4 +1,4 @@
-import Page from "@components/Page";
+import { Page } from "@components";
 import Link from "next/link";
 
 import useLogin from "@utils/useLogin";

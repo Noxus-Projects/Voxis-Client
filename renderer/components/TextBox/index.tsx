@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const TextBox: FC = () => {
+export const TextBox: FC = () => {
 	const classes = useStyles();
 	return (
 		<div className={classes.textBox}>
@@ -45,4 +45,3 @@ const TextBox: FC = () => {
 		</div>
 	);
 };
-export default TextBox;

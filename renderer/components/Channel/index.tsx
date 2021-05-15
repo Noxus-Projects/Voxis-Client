@@ -26,7 +26,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const Channel: FC<{ channel: ChannelType }> = ({ channel }) => {
+export const Channel: FC<{ channel: ChannelType }> = ({ channel }) => {
 	const classes = useStyles();
 
 	return (
@@ -38,5 +38,3 @@ const Channel: FC<{ channel: ChannelType }> = ({ channel }) => {
 		</>
 	);
 };
-
-export default Channel;

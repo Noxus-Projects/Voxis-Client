@@ -1,4 +1,4 @@
-import "@components/globals.css";
+import "@styles/globals.scss";
 
 import type { AppProps } from "next/app";
 import { Provider } from "renderer/client/WebSocket";

@@ -2,8 +2,7 @@ import { createUseStyles } from "react-jss";
 import { FC, useEffect, useState } from "react";
 import ChannelType from "@models/channel";
 
-import Channel from "@components/Channel";
-import StatusBox from "@components/StatusBox";
+import { Channel, StatusBox } from "@components";
 
 import useClient from "@utils/useClient";
 
@@ -16,7 +15,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const SideBar: FC = () => {
+export const SideBar: FC = () => {
 	const classes = useStyles();
 
 	const client = useClient();
@@ -40,5 +39,3 @@ const SideBar: FC = () => {
 		</>
 	);
 };
-
-export default SideBar;

@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const UserIcon: FC<{ id: string; avatar: string; size: string }> = (props) => {
+export const UserIcon: FC<{ id: string; avatar: string; size: string }> = (props) => {
 	const classes = useStyles();
 	return (
 		<img
@@ -18,4 +18,3 @@ const UserIcon: FC<{ id: string; avatar: string; size: string }> = (props) => {
 		/>
 	);
 };
-export default UserIcon;

@@ -1,4 +1,4 @@
-import Page from "@components/Page";
+import { Page } from "@components";
 
 import axios from "axios";
 import isLoggedIn from "@utils/isLoggedIn";

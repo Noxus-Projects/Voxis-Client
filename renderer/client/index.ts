@@ -22,7 +22,7 @@ class Client extends Event {
 		super();
 		this.db = createDb();
 
-		this.connection = io("wss://dev.g-vm.nl", {
+		this.connection = io("wss://zuidnederland.be", {
 			path: "/socket",
 			auth: {
 				token: this.db.get("accessToken").value(),
@@ -32,7 +32,7 @@ class Client extends Event {
 		this.subscribe();
 	}
 	private has(permission: Permission): boolean {
-		return this.db.get("user").get("permissions").has(permission).value();
+		return this.db.get("user").get("permissions").includes(permission).value();
 	}
 	private subscribe(): void {
 		this.connection.onAny((event, data) => {

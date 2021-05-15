@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { createUseStyles } from "react-jss";
-import UserIcon from "@components/UserIcon";
+
+import { UserIcon } from "@components";
 
 const useStyles = createUseStyles({
 	message: {
@@ -24,7 +25,7 @@ const useStyles = createUseStyles({
 	},
 });
 
-const Message: FC<{
+export const Message: FC<{
 	id: string;
 	avatar: string;
 	size: string;
@@ -48,5 +49,3 @@ const Message: FC<{
 		</div>
 	);
 };
-
-export default Message;
