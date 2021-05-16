@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-namespace */
-import User, { Permission } from "@models/user";
+import User, { Permission, Status } from "@models/user";
 import { Message } from "@models/channel";
 import Channel from "@models/channel";
 
@@ -22,8 +22,12 @@ export interface EmitMap {
 	leaveRoom: RoomEmit.change;
 
 	getUser: UserEmit.get;
+	setStatus: UserEmit.status;
 
 	voiceData: (data: string) => void;
+
+	addWhitelist: WhitelistEmit.add;
+	removeWhitelist: WhitelistEmit.remove;
 
 	editNickname: NicknameEmit.edit;
 }
@@ -34,7 +38,14 @@ export namespace VoiceEmit {
 	export type send = (data: string) => void;
 }
 
+export namespace WhitelistEmit {
+	export type add = (id: string, reply: Reply) => void;
+	export type remove = (id: string, reply: Reply) => void;
+}
+
 export namespace UserEmit {
+	export type status = (status: Status, reply: Reply) => void;
+
 	export type get = (id: string | null, reply: (msg: string | User) => void) => void;
 }
 
@@ -102,7 +113,7 @@ export namespace MessageEmit {
 	/**
 	 * Sends a message in a given channel.
 	 * @param options - An object containing the id of a channel and the message to send.
-	 * @param reply - Replies when an error occurs.
+	 * @param reply - Replies when an eror occurs.
 	 * @emits 'message' - The sent message, with the channel it was sent in.
 	 */
 	export type send = (options: Send, reply?: Reply) => void;
@@ -121,7 +132,7 @@ export namespace MessageEmit {
 	/**
 	 * Removes a message in a given channel.
 	 * @param options - An object containing the id of a channel and the message to remove.
-	 * @param reply - Replies when an error occurs.
+	 * @param reply - Replies when an eror occurs.
 	 * @emits 'removedMessage' - The removed message, with the channel it was sent in.
 	 */
 	export type remove = (options: Remove, reply?: Reply) => void;
@@ -144,7 +155,7 @@ export namespace MessageEmit {
 	/**
 	 * Edits a message in a given channel.
 	 * @param options - An object containing the id of a channel and the message to edit.
-	 * @param reply - Replies when an error occurs.
+	 * @param reply - Replies when an eror occurs.
 	 * @emits 'editedMessage' - The edited message, with the channel it was sent in.
 	 */
 	export type edit = (options: Edit, reply?: Reply) => void;

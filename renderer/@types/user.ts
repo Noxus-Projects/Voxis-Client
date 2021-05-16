@@ -3,8 +3,14 @@ export default interface User {
 	avatar: string;
 	id: string;
 	nickname: string;
-	lastConnected: number;
+	status: Status;
 	permissions: Permission[];
+}
+
+export enum Status {
+	ONLINE = 1,
+	AWAY = 2,
+	OFFLINE = 3,
 }
 
 export enum Permission {
@@ -22,6 +28,6 @@ export enum Permission {
 	SEND_MESSAGE = 12,
 	REMOVE_MESSAGE = 13,
 	MANAGE_PERMISSIONS = 14,
-	EDIT_NICKNAME = 15,
+	EDIT_NICKNAMES = 15,
 	SPEAK = 16,
 }

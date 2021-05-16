@@ -20,6 +20,14 @@ export interface EventsMap {
 	removedChannel: ChannelEvents.remove;
 	updatedChannel: ChannelEvents.update;
 	createdChannel: ChannelEvents.update;
+
+	addedWhitelist: WhitelistEvents.add;
+	removedWhitelist: WhitelistEvents.remove;
+}
+
+export namespace WhitelistEvents {
+	export type add = (id: string) => void;
+	export type remove = (id: string) => void;
 }
 
 export namespace VoiceEvents {
