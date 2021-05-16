@@ -1,17 +1,20 @@
-import { createContext, useEffect, useState } from "react";
-import { FC } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import Client from ".";
 
-const ClientContext = createContext<Client | null>(null);
+import { FC } from "react";
 
 export const Provider: FC = ({ children }) => {
-	const [client, setClient] = useState<Client | null>(null);
+	const [value, setClient] = useState<Client>();
+	const cleanupClient = useRef<Client>();
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
-			setClient(new Client());
+			const client = new Client();
+			cleanupClient.current = client;
+			setClient(client);
 		}
 		return () => {
+			const client = cleanupClient.current;
 			if (client) {
 				client.disconnect();
 				client.removeAllListeners();
@@ -21,6 +24,8 @@ export const Provider: FC = ({ children }) => {
 	}, []);
 
 	const { Provider } = ClientContext;
-	return <Provider value={client}>{children}</Provider>;
+	return <Provider value={value}>{children}</Provider>;
 };
+
+const ClientContext = createContext<Client | undefined>(undefined);
 export default ClientContext;
