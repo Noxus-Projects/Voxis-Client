@@ -17,6 +17,9 @@ export const SideBar: FC = () => {
 			setChannels(client.db.get("channels").value());
 			client.on("channels", setChannels);
 		}
+		return () => {
+			client?.removeListener("channels", setChannels);
+		};
 	}, [client]);
 
 	return (
@@ -26,7 +29,7 @@ export const SideBar: FC = () => {
 					<Channel key={channel.id} channel={channel} />
 				))}
 			</div>
-			{client && <StatusBox user={client.db.get("user").value()} />}
+			<StatusBox />
 		</>
 	);
 };

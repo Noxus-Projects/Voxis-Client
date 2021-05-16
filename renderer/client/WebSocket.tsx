@@ -12,7 +12,10 @@ export const Provider: FC = ({ children }) => {
 			setClient(new Client());
 		}
 		return () => {
-			client?.disconnect();
+			if (client) {
+				client.disconnect();
+				client.removeAllListeners();
+			}
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

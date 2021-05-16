@@ -8,22 +8,28 @@ import { UserIcon } from "@components";
 import User from "@models/user";
 import { FC } from "react";
 
-export const StatusBox: FC<{ user: User }> = ({ user }) => {
+export const StatusBox: FC = () => {
 	const client = useClient();
-	const [nickname, setNick] = useState(user.nickname);
+	const [user, setUser] = useState<User>();
 
 	useEffect(() => {
-		client?.on("username", setNick);
+		if (client) {
+			setUser(client.db.get("user").value());
+			client.on("user", setUser);
+		}
+		return () => {
+			client?.removeListener("user", setUser);
+		};
 	}, [client]);
 
 	return (
 		<div className={classes.statusBox}>
 			<div className={classes.userIcon}>
-				<UserIcon id={user.id} avatar={user.avatar} size="2rem" />
+				<UserIcon user={user} size="2rem" />
 			</div>
 			<div className={classes.statusIndicator} />
 			<div className={classes.userInfo}>
-				<div>{nickname}</div>
+				<div>{(user?.nickname || user?.name) ?? "..."}</div>
 				{/* <div className={classes.userStatus}>{user.status}</div> */}
 			</div>
 			<select name="" id="" className={classes.dropdown} />

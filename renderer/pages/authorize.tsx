@@ -30,6 +30,7 @@ const Authorize: NextPage = () => {
 							.set("accessToken", data.access_token)
 							.set("expires", Date.now() + data.expires_in)
 							.write();
+						client.reconnect(data.access_token);
 						push("dashboard");
 					})
 					.catch(() => {

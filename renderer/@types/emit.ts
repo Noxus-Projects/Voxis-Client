@@ -67,10 +67,7 @@ export namespace ChannelEmit {
 	 * @param id - The id of the channel.
 	 * @param reply - Replies with the channel, an array of channels or an error.
 	 */
-	export type get = (
-		id: string | null,
-		reply?: (channel: Channel | Channel[] | string | void) => void
-	) => void;
+	export type get = (id: string | null, reply?: (channel: Channel[] | string) => void) => void;
 }
 
 export namespace MessageEmit {

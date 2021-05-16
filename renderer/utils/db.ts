@@ -4,7 +4,9 @@ import LocalStorage from "lowdb/adapters/LocalStorage";
 
 const createDb = (): low.LowdbSync<Store> => {
 	const adapter = new LocalStorage<Store>("db");
-	return low(adapter);
+	const db = low(adapter);
+	db.defaults({ channels: [] }).write();
+	return db;
 };
 
 export default createDb;

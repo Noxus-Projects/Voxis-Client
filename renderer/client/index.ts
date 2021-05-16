@@ -1,6 +1,6 @@
 import { EmitMap } from "@models/emit";
 import { EventsMap } from "@models/events";
-import { Permission } from "@models/user";
+import User, { Permission } from "@models/user";
 import Channel from "@models/channel";
 
 import createDb from "@utils/db";
@@ -8,28 +8,49 @@ import { io, Socket } from "socket.io-client";
 import { Event } from "typescript.events";
 
 declare interface Client {
-	on(event: "username", listener: (name: string) => void): this;
+	on(event: "user", listener: (user: User) => void): this;
 	on(event: "channels", listener: (channels: Channel[]) => void): this;
-	emit(event: "username", name: string): boolean;
+	emit(event: "user", user: User): boolean;
 	emit(event: "channels", channels: Channel[]): boolean;
 }
+type IO = Socket<EventsMap, EmitMap>;
 
 class Client extends Event {
-	private connection: Socket<EventsMap, EmitMap>;
+	private connection: IO;
 	public db;
 
 	constructor() {
 		super();
 		this.db = createDb();
+		const token = this.db.get("accessToken").value();
 
-		this.connection = io("wss://zuidnederland.be", {
+		this.connection = this.createConnection(token);
+		this.subscribe();
+		this.me();
+		this.channels();
+	}
+	public reconnect(token: string): void {
+		this.connection.auth = {
+			token,
+		};
+		this.connection.connect();
+	}
+	private createConnection(token: string): IO {
+		const conn: IO = io("wss://zuidnederland.be", {
 			path: "/socket",
 			auth: {
-				token: this.db.get("accessToken").value(),
+				token: token,
 			},
+			autoConnect: false,
 			transports: ["websocket"],
 		});
-		this.subscribe();
+
+		if (token) {
+			conn.connect();
+		} else {
+			console.log("No token");
+		}
+		return conn;
 	}
 	private has(permission: Permission): boolean {
 		return this.db.get("user").get("permissions").includes(permission).value();
@@ -71,17 +92,18 @@ class Client extends Event {
 		this.connection.on("editedNickname", (edit) => {
 			if (this.db.get("user").get("id").isEqual(edit.user).value()) {
 				this.db.get("user").set("nickname", edit.updated).write();
-				this.emit("username", edit.updated);
+				this.emit("user", this.db.get("user").value());
 			}
 		});
-
-		this.me();
-		this.channel();
 	}
-	public channel(id = ""): void {
+	public channels(): void {
 		if (this.has(Permission.SEE_CHANNELS)) {
-			this.connection.emit("getChannel", id, (channels) => {
+			this.connection.emit("getChannel", "", (channels) => {
+				if (typeof channels == "string") {
+					return console.log(channels);
+				}
 				this.db.set("channels", channels).write();
+				this.emit("channels", channels);
 			});
 		}
 	}
@@ -91,11 +113,11 @@ class Client extends Event {
 				return console.log(me);
 			}
 			this.db.set("user", me).write();
+			this.emit("user", me);
 		});
 	}
 	public disconnect(): void {
 		this.connection.disconnect();
-		console.log("Connection Closed");
 	}
 }
 export default Client;
