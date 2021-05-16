@@ -1,23 +1,14 @@
-import { createUseStyles } from "react-jss";
-import { FC, useEffect, useState } from "react";
-import ChannelType from "@models/channel";
+import classes from "./component.module.scss";
+
+import useClient from "@utils/useClient";
+import { useEffect, useState } from "react";
 
 import { Channel, StatusBox } from "@components";
 
-import useClient from "@utils/useClient";
-
-const useStyles = createUseStyles({
-	sideBar: {
-		height: "100vh",
-		width: "18rem",
-		position: "absolute",
-		backgroundColor: "#202226",
-	},
-});
+import ChannelType from "@models/channel";
+import { FC } from "react";
 
 export const SideBar: FC = () => {
-	const classes = useStyles();
-
 	const client = useClient();
 	const [channels, setChannels] = useState<ChannelType[]>([]);
 

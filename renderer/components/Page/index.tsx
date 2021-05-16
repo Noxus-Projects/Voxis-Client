@@ -1,13 +1,14 @@
-import Head from "next/head";
 import { description as defaultDescription } from "@config";
+
+import Head from "next/head";
+
+import { FC } from "react";
 
 /**
  * Adds SEO tags to a page
  * @param props.title - The Title in the browser
  * @param props.description - The description of the page.
  */
-
-import { FC } from "react";
 
 export const Page: FC<{ title: string; description?: string }> = ({
 	title,

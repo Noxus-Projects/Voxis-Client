@@ -1,0 +1,27 @@
+.textBox {
+	background-color: #202226;
+	height: 3rem;
+	border-radius: 8px;
+	bottom: 1rem;
+	position: absolute;
+	width: calc(100vw - 20rem);
+}
+.textInput {
+	height: 100%;
+	padding-left: 12px;
+	padding: 8px;
+	color: #d1d5db;
+	background-color: transparent;
+	display: inline-block;
+	width: calc(100% - 50px);
+	&:focus {
+		outline: none;
+	}
+}
+.sendButton {
+	color: #d1d5db;
+	font-size: 1.5rem;
+	width: 48px;
+	display: inline-block;
+	vertical-align: middle;
+}

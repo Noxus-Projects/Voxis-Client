@@ -1,0 +1,20 @@
+.channel {
+	padding: 8px;
+	margin: 8px;
+	border-radius: 4px;
+	&:hover {
+		background-color: #27292e;
+	}
+	display: flex;
+	align-items: center;
+	color: #d1d5db;
+}
+
+.channelName {
+	margin-left: 5px;
+	font-size: 15pt;
+}
+
+.active {
+	background-color: #27292e;
+}

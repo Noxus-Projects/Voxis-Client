@@ -1,4 +1,5 @@
 export * from "./Channel";
+export * from "./Dashboard";
 export * from "./Message";
 export * from "./Page";
 export * from "./SideBar";

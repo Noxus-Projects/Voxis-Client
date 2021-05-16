@@ -1,0 +1,34 @@
+.dashBody {
+	height: 100vh;
+	width: calc(100vw - 18rem);
+	position: absolute;
+	right: 0px;
+	padding: 16px;
+	background-color: #27292e;
+}
+.messageBox {
+	position: absolute;
+	width: calc(100vw - 20rem);
+	bottom: 4rem;
+	right: 0px;
+	height: calc(100vh - 6rem);
+	margin: 1rem;
+	padding-right: 5px;
+	display: flex;
+	flex-direction: column-reverse;
+	overflow-y: scroll;
+
+	// firefox scrollbar:
+	scrollbar-width: thin;
+	scrollbar-color: #27292e;
+	&::-webkit-scrollbar {
+		width: 12px;
+	}
+	&::-webkit-scrollbar-track {
+		background: #27292e;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #202226;
+		borderradius: 20px;
+	}
+}
