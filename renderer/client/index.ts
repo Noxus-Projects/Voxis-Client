@@ -26,8 +26,10 @@ class Client extends Event {
 
 		this.connection = this.createConnection(token);
 		this.subscribe();
-		this.me();
-		this.channels();
+		this.connection.on("connect", () => {
+			this.me();
+			this.channels();
+		});
 	}
 	public reconnect(token: string): void {
 		this.connection.auth = {
@@ -52,9 +54,11 @@ class Client extends Event {
 		}
 		return conn;
 	}
+
 	private has(permission: Permission): boolean {
 		return this.db.get("user").get("permissions").includes(permission).value();
 	}
+
 	private subscribe(): void {
 		this.connection.onAny((event, data) => {
 			console.log(`[WS] ${event}: `, data);
@@ -64,7 +68,8 @@ class Client extends Event {
 			console.error(e);
 			if (e.message == "invalid token") {
 				this.db.unset("expires").write();
-				return;
+			} else if (e.message == "not on whitelist") {
+				alert("Not whitelisted");
 			}
 		});
 
@@ -96,26 +101,29 @@ class Client extends Event {
 			}
 		});
 	}
+
 	public channels(): void {
 		if (this.has(Permission.SEE_CHANNELS)) {
-			this.connection.emit("getChannel", "", (channels) => {
-				if (typeof channels == "string") {
-					return console.log(channels);
+			this.connection.emit("getChannel", "", (data) => {
+				if ("error" in data) {
+					return console.log(data.error);
 				}
-				this.db.set("channels", channels).write();
-				this.emit("channels", channels);
+				this.db.set("channels", data.success).write();
+				this.emit("channels", data.success);
 			});
 		}
 	}
+
 	public me(): void {
-		this.connection.emit("getUser", "", (me) => {
-			if (typeof me == "string") {
-				return console.log(me);
+		this.connection.emit("getUser", "", (data) => {
+			if ("error" in data) {
+				return console.log(data.error);
 			}
-			this.db.set("user", me).write();
-			this.emit("user", me);
+			this.db.set("user", data.success).write();
+			this.emit("user", data.success);
 		});
 	}
+
 	public disconnect(): void {
 		this.connection.disconnect();
 	}

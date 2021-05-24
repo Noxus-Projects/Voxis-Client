@@ -15,7 +15,7 @@ export interface EventsMap {
 
 	sentMessage: MessageEvents.update;
 	editedMessage: MessageEvents.update;
-	removedMessage: MessageEvents.update;
+	removedMessage: MessageEvents.remove;
 
 	removedChannel: ChannelEvents.remove;
 	updatedChannel: ChannelEvents.update;
@@ -75,6 +75,13 @@ export namespace MessageEvents {
 		channel: string;
 		message: Message;
 	}
+
+	interface Remove {
+		id: string;
+		channel: string;
+	}
+
+	export type remove = (options: Remove) => void;
 
 	export type update = (options: Update) => void;
 }
