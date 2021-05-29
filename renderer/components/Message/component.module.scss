@@ -1,10 +1,10 @@
 .message {
-	height: max-content;
 	display: flex;
-	background-color: #202226;
-	border-radius: 7px;
+	height: max-content;
 	padding: 10px;
 	margin-top: 10px;
+	background-color: #202226;
+	border-radius: 7px;
 }
 
 .username {
@@ -17,6 +17,6 @@
 }
 
 .messageItem {
-	color: #d1d5db;
 	padding-top: 4px;
+	color: #d1d5db;
 }

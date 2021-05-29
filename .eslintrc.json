@@ -8,7 +8,8 @@
 		"ecmaVersion": 8
 	},
 	"plugins": [
-		"prettier"
+		"prettier",
+		"css-modules"
 	],
 	"ignorePatterns": [
 		"node_modules/*",
@@ -16,7 +17,8 @@
 		"!.prettierrc.js"
 	],
 	"extends": [
-		"eslint:recommended"
+		"eslint:recommended",
+		"plugin:css-modules/recommended"
 	],
 	"overrides": [
 		{

@@ -1,27 +1,30 @@
 .textBox {
-	background-color: #202226;
-	height: 3rem;
-	border-radius: 8px;
-	bottom: 1rem;
 	position: absolute;
+	bottom: 1rem;
 	width: calc(100vw - 20rem);
+	height: 3rem;
+	background-color: #202226;
+	border-radius: 8px;
 }
+
 .textInput {
-	height: 100%;
-	padding-left: 12px;
-	padding: 8px;
-	color: #d1d5db;
-	background-color: transparent;
 	display: inline-block;
 	width: calc(100% - 50px);
+	height: 100%;
+	padding: 8px;
+	padding-left: 12px;
+	background-color: transparent;
+	color: #d1d5db;
+
 	&:focus {
 		outline: none;
 	}
 }
+
 .sendButton {
+	display: inline-block;
+	width: 48px;
 	color: #d1d5db;
 	font-size: 1.5rem;
-	width: 48px;
-	display: inline-block;
 	vertical-align: middle;
 }

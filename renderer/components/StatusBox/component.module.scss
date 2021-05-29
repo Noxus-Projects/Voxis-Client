@@ -1,42 +1,42 @@
 .statusBox {
-	background-color: #202226;
 	position: absolute;
-	bottom: 0px;
+	bottom: 0;
 	width: 18rem;
+	background-color: #202226;
 }
+
 .userIcon {
+	display: inline-block;
 	width: 2rem;
 	height: 2rem;
-	display: inline-block;
-	border-radius: 50%;
 	margin: 8px;
+	border-radius: 50%;
 	vertical-align: middle;
 }
+
 .userInfo {
 	display: inline-block;
-	color: #d1d5db;
 	margin: 8px;
-	vertical-align: middle;
+	color: #d1d5db;
 	text-align: left;
+	vertical-align: middle;
 }
+
 .statusIndicator {
-	left: 32px;
-	bottom: 15px;
-	background-color: #10b981;
 	position: absolute;
-	border-radius: 50%;
+	bottom: 15px;
+	left: 32px;
 	width: 12px;
 	height: 12px;
 	border-width: 2px;
 	border-color: #27292e;
+	background-color: #10b981;
+	border-radius: 50%;
 }
-.userStatus {
-	color: #6b7280;
-	font-size: 12px;
-	background-color: transparent;
-}
+
 .dropdown {
 	background-color: #202226;
+
 	&:focus {
 		outline: none;
 	}
